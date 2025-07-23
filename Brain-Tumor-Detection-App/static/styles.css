@@ -1,0 +1,367 @@
+/* Modern styles for Brain Tumor Detection app */
+:root {
+  --primary: #3e64ff;
+  --secondary: #5edfff;
+  --success: #2ecc71;
+  --danger: #e74c3c;
+  --warning: #f39c12;
+  --light: #f8f9fa;
+  --dark: #343a40;
+  --gray: #6c757d;
+  --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+  --shadow: 0 4px 15px rgba(0,0,0,0.1);
+  --border-radius: 12px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--dark);
+  background-color: #f5f8fa;
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Header styles */
+header {
+  margin-bottom: 30px;
+  padding: 20px 0;
+  border-bottom: 1px solid #e1e8ed;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.logo i {
+  font-size: 2.5rem;
+  color: var(--primary);
+}
+
+h1 {
+  font-size: 2.2rem;
+  color: var(--dark);
+  margin: 0;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: var(--dark);
+}
+
+h3 {
+  font-size: 1.3rem;
+  color: var(--primary);
+  margin-bottom: 15px;
+}
+
+/* Main content area */
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+/* Upload section */
+.upload-section {
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+}
+
+.upload-box {
+  border: 2px dashed var(--primary);
+  border-radius: var(--border-radius);
+  padding: 30px;
+  text-align: center;
+  background-color: rgba(62, 100, 255, 0.05);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.upload-box:hover {
+  background-color: rgba(62, 100, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.upload-box i {
+  font-size: 3rem;
+  color: var(--primary);
+  margin-bottom: 15px;
+}
+
+.upload-box p {
+  color: var(--gray);
+  margin-bottom: 10px;
+}
+
+input[type="file"] {
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+}
+
+/* Image preview */
+.image-preview-container {
+  width: 100%;
+  max-width: 500px;
+  display: none;
+}
+
+.image-card {
+  background-color: white;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+#uploadedImage {
+  width: 100%;
+  display: block;
+  border-radius: var(--border-radius);
+}
+
+/* Button styles */
+.action-button {
+  background: var(--gradient);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 14px 30px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+}
+
+.action-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.action-button:active {
+  transform: translateY(1px);
+}
+
+.action-button:disabled {
+  background: var(--gray);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.action-button i {
+  font-size: 1.2rem;
+}
+
+/* Result container */
+.result-container {
+  width: 100%;
+  max-width: 600px;
+  min-height: 60px;
+  border-radius: var(--border-radius);
+  padding: 20px;
+  background-color: white;
+  box-shadow: var(--shadow);
+  text-align: center;
+  display: none;
+}
+
+/* Info section */
+.info-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  margin: 40px 0;
+}
+
+.info-card {
+  background-color: white;
+  border-radius: var(--border-radius);
+  padding: 25px;
+  box-shadow: var(--shadow);
+}
+
+.info-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  gap: 10px;
+}
+
+.info-header i {
+  font-size: 1.5rem;
+  color: var(--primary);
+}
+
+/* Dataset stats */
+#datasetStats {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.stat-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stat-icon.positive {
+  background-color: rgba(46, 204, 113, 0.2);
+  color: var(--success);
+}
+
+.stat-icon.negative {
+  background-color: rgba(231, 76, 60, 0.2);
+  color: var(--danger);
+}
+
+.stat-icon i {
+  font-size: 1.2rem;
+}
+
+.stat-details {
+  font-weight: 600;
+}
+
+/* Steps list */
+.steps {
+  list-style: none;
+  counter-reset: step-counter;
+}
+
+.steps li {
+  counter-increment: step-counter;
+  margin-bottom: 15px;
+  position: relative;
+  padding-left: 45px;
+  display: flex;
+  align-items: center;
+}
+
+.steps li::before {
+  content: counter(step-counter);
+  position: absolute;
+  left: 0;
+  width: 30px;
+  height: 30px;
+  background-color: var(--primary);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.steps li i {
+  margin-right: 10px;
+  color: var(--primary);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 40px;
+  border-top: 1px solid #e1e8ed;
+  color: var(--gray);
+}
+
+footer i.fa-heart {
+  color: var(--danger);
+}
+
+/* Loader animation */
+.loader {
+  border: 3px solid rgba(62, 100, 255, 0.2);
+  border-top: 3px solid var(--primary);
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  animation: spin 1.5s linear infinite;
+  margin-right: 15px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.error-message {
+  color: var(--danger);
+  font-weight: 600;
+}
+    
+.success-message {
+  color: var(--success);
+  font-weight: 600;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+  
+  .logo i {
+    font-size: 2rem;
+  }
+  
+  .upload-box {
+    padding: 20px;
+  }
+  
+  .upload-box i {
+    font-size: 2.5rem;
+  }
+  
+  .action-button {
+    padding: 12px 25px;
+    font-size: 1rem;
+  }
+  
+  .info-section {
+    grid-template-columns: 1fr;
+  }
+}
